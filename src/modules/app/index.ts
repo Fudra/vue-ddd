@@ -1,13 +1,10 @@
 import { routes } from './routes'
 import { IModule } from '@/types';
-
-
-const App = {
-    template: '<div>a</div>',
-}
+import { useAppStore } from './store'
 
 export default {
     name: 'app',
     basePath: '/',
     routes,
+    store: useAppStore
 } as IModule;

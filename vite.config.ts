@@ -9,6 +9,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': __dirname + '/src',
+      '@app': __dirname + '/src/domains/app',
       '@domains': __dirname + '/src/domains',
       '@share': __dirname + '/src/domains/share',
     }
