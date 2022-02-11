@@ -10,5 +10,5 @@
 </template>
 
 <script setup lang="ts">
-//import "./routes"
+
 </script>

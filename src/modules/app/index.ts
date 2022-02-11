@@ -3,8 +3,8 @@ import { routes } from './routes'
 import { IModule } from '@/types';
 
 export default {
-    name: 'example',
-    basePath: '/e',
+    name: 'app',
+    basePath: '',
     component: ModulePage,
     routes,
 } as IModule;

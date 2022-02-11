@@ -1,20 +1,21 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router'
 
-import HomePage from '@/pages/HomePage.vue'
-import NotFoundPage from '@/pages/error/NotFoundPage.vue'
 
-const routes: Array<RouteRecordRaw>  = [
+const routes: Array<RouteRecordRaw>  = []
+
+/*[
     {
         path: '/',
-        name: 'Home',
+        name: 'home',
         component: HomePage
     },
     {
         path: '/:pathMatch(.*)*', 
-        name: 'PageNotFound',
+        name: 'page-not-found',
         component: NotFoundPage,
     }
 ];
+*/
 
 
 const router = createRouter({
