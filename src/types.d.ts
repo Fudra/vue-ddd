@@ -4,7 +4,7 @@ import { DefineComponent } from 'vue'
 
 export interface IModule {
     name: string,
-    component: DefineComponent,
+    component?: DefineComponent,
     basePath: string, 
     routes: Array<RouteRecordRaw>
 }

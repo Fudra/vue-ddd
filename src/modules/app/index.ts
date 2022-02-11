@@ -1,10 +1,13 @@
-import ModulePage from './Module.vue';
 import { routes } from './routes'
 import { IModule } from '@/types';
 
+
+const App = {
+    template: '<div>a</div>',
+}
+
 export default {
     name: 'app',
-    basePath: '',
-    component: ModulePage,
+    basePath: '/',
     routes,
 } as IModule;
