@@ -1,30 +1,32 @@
 <template>
   <div>
-    <button @click="store.decrement()">-</button>
-    <button @click="store.increment()">+</button>
+    <button @click="decrementFn">-</button>
+    <button @click="incrementFn">+</button>
     {{ store.counter }}
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, inject } from "vue";
+import { Emitter } from "mitt";
+import { EmitterKey } from "@/plugins/modules";
 
-import { useExampleStore } from '../store'
+import { useExampleStore } from "../store";
 const store = useExampleStore();
 
-const emit = defineEmits(["increment", "decrement"]);
+const emit = defineEmits(["counter:increment", "counter:decrement"]);
+const emitter = inject<Emitter<any>>(EmitterKey);
 
-/*
-const counter = ref(0);
 
 const incrementFn = () => {
-  counter.value++;
-  emit("increment", counter.value);
+  store.increment();
+  emitter?.emit("counter:increment", { value: store.counter });
+  emit("counter:increment", store.counter);
 };
 
 const decrementFn = () => {
-  counter.value--;
-  emit("decrement", counter.value);
+  store.decrement();
+  emitter?.emit("counter:decrement", { value: store.counter });
+  emit("counter:decrement", store.counter);
 };
-*/
 </script>

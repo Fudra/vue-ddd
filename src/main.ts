@@ -17,7 +17,6 @@ createApp(App)
             exampleModule,
         ],
         router,
-        store: pinia,
     } as IModuleManager)
     .use(pinia)
     .use(router)

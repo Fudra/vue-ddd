@@ -1,12 +1,13 @@
-import { App } from 'vue'
+import { App, InjectionKey } from 'vue'
 import { IModuleManager } from '@/types.d';
-import mitt from 'mitt';
+import mitt, {Emitter} from 'mitt';
+
+export const EmitterKey = Symbol() as InjectionKey<Emitter<any>>
 
 export default {
     install: (app: App, {
         modules,
         router,
-        store,
     }: IModuleManager): void => {
 
         // init Routes
@@ -31,19 +32,12 @@ export default {
                     router.addRoute(route);
                 }
             }
-        }
-
-        // init all store componentes
-        /*
-        store.use((context) => console.log(context))
-
-        for (const module of modules) {
-            console.log(module.store())
-        }
-        */
+        }    
 
         // emitter
-        app.provide('emitter', mitt())
+        //
+
+        app.provide(EmitterKey, mitt())
 
     }
 }
