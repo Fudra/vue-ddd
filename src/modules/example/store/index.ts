@@ -1,7 +1,11 @@
 import { defineStore } from 'pinia'
 
-export const useExampleStore = defineStore('example', {
-  state: () => ({
+interface State {
+  count: number; 
+}
+
+export const useExampleStore = defineStore('module/example', {
+  state: (): State => ({
     count: 0
   }),
   getters: {

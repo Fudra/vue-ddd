@@ -1,10 +1,12 @@
 import { App } from 'vue'
 import { IModuleManager } from '@/types.d';
+import mitt from 'mitt';
 
 export default {
     install: (app: App, {
         modules,
-        router
+        router,
+        store,
     }: IModuleManager): void => {
 
         // init Routes
@@ -30,5 +32,18 @@ export default {
                 }
             }
         }
+
+        // init all store componentes
+        /*
+        store.use((context) => console.log(context))
+
+        for (const module of modules) {
+            console.log(module.store())
+        }
+        */
+
+        // emitter
+        app.provide('emitter', mitt())
+
     }
 }

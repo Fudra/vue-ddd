@@ -1,8 +1,11 @@
 import { defineStore } from 'pinia'
 
+interface State {
+    name: string;
+}
+
 export const useAppStore = defineStore('app', {
-    state: () => ({
-        /** @type { string } */
+    state: (): State => ({
         name: 'DDD Test',
     }),
     getters: {

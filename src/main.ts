@@ -8,7 +8,6 @@ import exampleModule from '@/modules/example';
 import moduleManager from '@/plugins/modules';
 import { IModuleManager } from './types';
 
-
 const pinia = createPinia();
 
 createApp(App)
