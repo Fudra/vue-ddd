@@ -1,5 +1,5 @@
 import { App, InjectionKey } from 'vue'
-import { IModuleManager } from '@/types.d';
+import { ModuleManager } from '@/types.d';
 import mitt, {Emitter} from 'mitt';
 
 export const EmitterKey = Symbol() as InjectionKey<Emitter<any>>
@@ -8,7 +8,7 @@ export default {
     install: (app: App, {
         modules,
         router,
-    }: IModuleManager): void => {
+    }: ModuleManager): void => {
 
         // init Routes
         for (const module of modules) {

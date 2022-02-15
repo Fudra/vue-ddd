@@ -6,7 +6,7 @@ import { createPinia } from 'pinia'
 import appModule from '@/modules/app';
 import exampleModule from '@/modules/example';
 import moduleManager from '@/plugins/modules';
-import { IModuleManager } from './types';
+import { ModuleManager } from './types';
 
 const pinia = createPinia();
 
@@ -17,7 +17,7 @@ createApp(App)
             exampleModule,
         ],
         router,
-    } as IModuleManager)
+    } as ModuleManager)
     .use(pinia)
     .use(router)
     .mount('#app')

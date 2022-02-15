@@ -1,14 +1,14 @@
 import { defineStore } from 'pinia'
 
 
-export interface IEventLog {
+export interface EventLog {
     timestamp: number, 
     event: string | number | symbol, 
     data: any
 }
 
 interface State {
-    events: Array<IEventLog>;
+    events: Array<EventLog>;
 }
 
 export const useMessagingStore = defineStore('messaging', {
@@ -16,8 +16,8 @@ export const useMessagingStore = defineStore('messaging', {
         events: []
     }),
     getters: {
-        loggedEvents: (state): Array<IEventLog> => state.events,
-        last: (state): IEventLog => state.events[state.events.length - 1] || null,
+        loggedEvents: (state): Array<EventLog> => state.events,
+        last: (state): EventLog => state.events[state.events.length - 1] || null,
     },
     actions: {
         log( event:string | number | symbol, data: any ) {

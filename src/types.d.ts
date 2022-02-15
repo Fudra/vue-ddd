@@ -3,7 +3,7 @@ import { DefineComponent } from 'vue'
 import { Pinia, StoreDefinition } from 'pinia';
 
 
-export interface IModule {
+export interface Module {
     name: string,
     component?: DefineComponent,
     basePath: string,
@@ -12,8 +12,8 @@ export interface IModule {
 }
 
 
-export interface IModuleManager {
-    modules: Array<IModule>,
+export interface ModuleManager {
+    modules: Array<Module>,
     router: Router,
     store: Pinia,
 }
