@@ -1,19 +1,17 @@
 import { Router, RouteRecordRaw } from "vue-router";
-import { DefineComponent } from 'vue'
-import { Pinia, StoreDefinition } from 'pinia';
+import { DefineComponent, ComponentOptionsMixin } from 'vue'
 
 
-export interface Module {
+export interface ModuleDeclaration {
     name: string,
-    component?: DefineComponent,
+    anonymous: true,
+    component: DefineComponent | ComponentOptionsMixin,
     basePath: string,
-    routes: Array<RouteRecordRaw>
-    store: StoreDefinition,
+    routes?: Array<RouteRecordRaw>
 }
 
 
 export interface ModuleManager {
-    modules: Array<Module>,
+    modules: Array<ModuleDeclaration>,
     router: Router,
-    store: Pinia,
 }

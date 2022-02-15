@@ -1,5 +1,5 @@
 import { routes } from './routes'
-import { Module } from '@/types';
+import { ModuleDeclaration } from '@/types';
 import { useAppStore } from './store/app'
 
 export default {
@@ -7,4 +7,4 @@ export default {
     basePath: '/',
     routes,
     store: useAppStore
-} as Module;
+} as ModuleDeclaration;

@@ -2,8 +2,8 @@ import { defineStore } from 'pinia'
 
 
 export interface EventLog {
-    timestamp: number, 
-    event: string | number | symbol, 
+    timestamp: number,
+    event: string | number | symbol,
     data: any
 }
 
@@ -20,13 +20,13 @@ export const useMessagingStore = defineStore('messaging', {
         last: (state): EventLog => state.events[state.events.length - 1] || null,
     },
     actions: {
-        log( event:string | number | symbol, data: any ) {
+        log(event: string | number | symbol, data: any) {
             this.$state.events.push(
-              {
-                timestamp: Date.now(),
-                event,
-                data
-              }
+                {
+                    timestamp: Date.now(),
+                    event,
+                    data
+                }
             )
         }
     },
