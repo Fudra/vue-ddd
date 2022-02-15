@@ -23,6 +23,7 @@ export default {
             addBaseRoute(router, module);
             addRoute(router, module);
 
+
             // add optional script to vue instance
             if (module.anonymous) {
                 additionalComponents.push(module.component)
@@ -38,9 +39,17 @@ export default {
     }
 };
 
+// Base Route for modules
 const addBaseRoute = (router: Router, module: ModuleDeclaration) => {
+    if (module.anonymous) return;
     if (!module.component) return;
-    // Base Route for modules
+
+
+    if (!module.basePath) {
+        throw new Error('`basepath` should not be empty. Either set a basepath or declare the module as `anonymous`')
+    }
+
+
     router.addRoute({
         name: module.name,
         path: module.basePath,
@@ -51,6 +60,7 @@ const addBaseRoute = (router: Router, module: ModuleDeclaration) => {
 
 const addRoute = (router: Router, module: ModuleDeclaration) => {
     if (!module.routes) return;
+    if (module.anonymous) return;
 
     for (const route of module.routes) {
         if (module.component) {

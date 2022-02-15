@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 
-
 export interface EventLog {
     timestamp: number,
     event: string | number | symbol,

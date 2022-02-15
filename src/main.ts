@@ -10,8 +10,6 @@ import triggerModule from '@/modules/trigger';
 import moduleManager from '@/plugins/modules';
 import { ModuleManager } from './types';
 
-const pinia = createPinia();
-
 createApp(App)
     .use(moduleManager, {
         modules: [
@@ -22,7 +20,7 @@ createApp(App)
         ],
         router,
     } as ModuleManager)
-    .use(pinia)
+    .use(createPinia())
     .use(router)
     .mount('#app')
 

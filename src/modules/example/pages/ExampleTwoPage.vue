@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, inject } from "vue";
+import { inject } from "vue";
 import { Emitter } from "mitt";
 import { EmitterKey } from "@/plugins/modules";
 

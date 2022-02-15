@@ -6,7 +6,7 @@ export interface ModuleDeclaration {
     name: string,
     anonymous?: Boolean,
     component: DefineComponent | ComponentOptionsMixin,
-    basePath: string,
+    basePath?: string,
     routes?: Array<RouteRecordRaw>
 }
 
