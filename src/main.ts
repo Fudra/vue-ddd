@@ -2,14 +2,18 @@ import { createApp } from 'vue'
 import App from '@/modules/app/App.vue'
 import router from './router'
 import { createPinia } from 'pinia'
+import { ModuleManager } from './modules/share/types';
 
+import moduleManager from '@/plugins/modules';
+
+/**Modules */
 import appModule from '@/modules/app';
 import exampleModule from '@/modules/example';
 import fooModule from '@/modules/foo';
-import messagingModule from '@/modules/messaging';
-import triggerModule from '@/modules/trigger';
-import moduleManager from '@/plugins/modules';
-import { ModuleManager } from './types';
+
+/* Services */
+import messagingService from '@/services/messaging';
+import triggerServcie from '@/services/trigger';
 
 createApp(App)
     .use(moduleManager, {
@@ -17,8 +21,10 @@ createApp(App)
             appModule,
             exampleModule,
             fooModule,
-            messagingModule,
-            triggerModule,
+        ],
+        services: [
+            messagingService,
+            triggerServcie,
         ],
         router,
     } as ModuleManager)

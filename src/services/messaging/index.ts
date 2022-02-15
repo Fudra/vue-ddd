@@ -1,8 +1,7 @@
-import { ModuleDeclaration } from '@/types';
+import { ServiceDeclaration } from '@/modules/share/types';
 import module from './module';
 
 export default {
     name: 'messaging',
-    anonymous: true,
     component: module,
-} as ModuleDeclaration;
+} as ServiceDeclaration;

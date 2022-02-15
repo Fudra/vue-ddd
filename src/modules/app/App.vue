@@ -23,7 +23,7 @@ import { inject } from "vue";
 import { Emitter } from "mitt";
 import { useAppStore } from "./store/app";
 import { EmitterKey } from "@/plugins/modules";
-import { useMessagingStore } from "@/modules/messaging/store";
+import { useMessagingStore } from "@/services/messaging/store";
 
 /** @ts-ignore-next-line */
 import AddionalComponents from "./components/AddionalComponents.vue";
