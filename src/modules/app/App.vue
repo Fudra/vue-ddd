@@ -10,6 +10,7 @@
 
     <router-link :to="{ name: 'app-home' }">Home </router-link>
     <router-link :to="{ name: 'module-example' }">Example </router-link>
+    <router-link :to="{ name: 'module-foo' }">Foo </router-link>
 
     <router-view />
 

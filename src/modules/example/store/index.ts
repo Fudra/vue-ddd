@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { defineStore, acceptHMRUpdate } from 'pinia'
 
 interface State {
   count: number; 
@@ -20,3 +20,7 @@ export const useExampleStore = defineStore('module/example', {
     }
   },
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useExampleStore, import.meta.hot))
+}

@@ -49,13 +49,11 @@ const addBaseRoute = (router: Router, module: ModuleDeclaration) => {
         throw new Error('`basepath` should not be empty. Either set a basepath or declare the module as `anonymous`')
     }
 
-
     router.addRoute({
         name: module.name,
         path: module.basePath,
         component: module.component,
     })
-
 }
 
 const addRoute = (router: Router, module: ModuleDeclaration) => {

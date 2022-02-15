@@ -1,9 +1,9 @@
-import { defineStore } from 'pinia'
+import { defineStore, acceptHMRUpdate } from 'pinia'
 
 export interface EventLog {
     timestamp: number,
     event: string | number | symbol,
-    data: any
+    data: unknown
 }
 
 interface State {
@@ -19,7 +19,7 @@ export const useMessagingStore = defineStore('messaging', {
         last: (state): EventLog => state.events[state.events.length - 1] || null,
     },
     actions: {
-        log(event: string | number | symbol, data: any) {
+        log(event: string | number | symbol, data: unknown) {
             this.$state.events.push(
                 {
                     timestamp: Date.now(),
@@ -30,3 +30,7 @@ export const useMessagingStore = defineStore('messaging', {
         }
     },
 })
+
+if (import.meta.hot) {
+    import.meta.hot.accept(acceptHMRUpdate(useMessagingStore, import.meta.hot))
+}
