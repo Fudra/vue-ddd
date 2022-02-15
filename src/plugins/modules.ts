@@ -1,10 +1,10 @@
-import { App, InjectionKey } from 'vue'
+import { App, InjectionKey, ComponentOptionsMixin } from 'vue'
 import { ModuleDeclaration, ModuleManager } from '@/types.d';
 import mitt, { Emitter } from 'mitt';
 import { Router } from 'vue-router';
 
 export const EmitterKey = Symbol() as InjectionKey<Emitter<any>>
-export const ModuleKey = Symbol() as InjectionKey<any>
+export const ModuleKey = Symbol() as InjectionKey<ComponentOptionsMixin>
 
 export default {
     install: (app: App, {
@@ -12,7 +12,7 @@ export default {
         router,
     }: ModuleManager): void => {
 
-        const additionalComponents: any[] = [];
+        const additionalComponents: ComponentOptionsMixin[] = [];
 
         // init modules
         for (const module of modules) {
@@ -31,7 +31,7 @@ export default {
 
         // provide emitter
         app.provide(EmitterKey, mitt())
-    
+
         // provide modules, that requires the vue instance
         app.provide(ModuleKey, additionalComponents)
 

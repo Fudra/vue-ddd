@@ -8,7 +8,7 @@ export interface EventLog {
 }
 
 interface State {
-    events: Array<EventLog>;
+    events: EventLog[];
 }
 
 export const useMessagingStore = defineStore('messaging', {
@@ -16,7 +16,7 @@ export const useMessagingStore = defineStore('messaging', {
         events: []
     }),
     getters: {
-        loggedEvents: (state): Array<EventLog> => state.events,
+        loggedEvents: (state): EventLog[] => state.events,
         last: (state): EventLog => state.events[state.events.length - 1] || null,
     },
     actions: {

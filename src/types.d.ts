@@ -4,7 +4,7 @@ import { DefineComponent, ComponentOptionsMixin } from 'vue'
 
 export interface ModuleDeclaration {
     name: string,
-    anonymous: true,
+    anonymous?: Boolean,
     component: DefineComponent | ComponentOptionsMixin,
     basePath: string,
     routes?: Array<RouteRecordRaw>

@@ -6,13 +6,10 @@ import { EmitterKey } from "@/plugins/modules";
 export default {
     setup() {
         const emitter = inject<Emitter<any>>(EmitterKey);
-
-        console.log(emitter);
         
         setInterval(() => {
             emitter?.emit("time:interval"),
             console.log("time:interval called");
-            
         }, 5000)
 
         // dummy element
