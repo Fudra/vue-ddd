@@ -9,13 +9,13 @@
 <script setup lang="ts">
 import { inject } from "vue";
 import { Emitter } from "mitt";
-import { EmitterKey } from "@/plugins/modules";
+import { EmitterInjectionKey } from "@/plugins/modules";
 
 import { useExampleStore } from "../store";
 const store = useExampleStore();
 
 const emit = defineEmits(["counter:increment", "counter:decrement"]);
-const emitter = inject<Emitter<any>>(EmitterKey);
+const emitter = inject<Emitter<any>>(EmitterInjectionKey);
 
 
 const incrementFn = () => {

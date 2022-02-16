@@ -9,9 +9,9 @@
 <script setup lang="ts">
 import { inject } from "vue";
 import { Emitter } from "mitt";
-import { EmitterKey } from "@/plugins/modules";
+import { EmitterInjectionKey } from "@/plugins/modules";
 
-const emitter = inject<Emitter<any>>(EmitterKey);
+const emitter = inject<Emitter<any>>(EmitterInjectionKey);
 
 const testEvent1 = () => emitter?.emit("event:test1", { a: 1, b: 2 });
 

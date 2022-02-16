@@ -3,6 +3,7 @@ import App from '@/modules/app/App.vue'
 import router from './router'
 import { createPinia } from 'pinia'
 import { ModuleManager } from './modules/share/types';
+import { createI18n } from 'vue-i18n'
 
 import moduleManager from '@/plugins/modules';
 
@@ -14,6 +15,8 @@ import fooModule from '@/modules/foo';
 /* Services */
 import messagingService from '@/services/messaging';
 import triggerServcie from '@/services/trigger';
+
+
 
 createApp(App)
     .use(moduleManager, {
@@ -27,6 +30,12 @@ createApp(App)
             triggerServcie,
         ],
         router,
+        config: {
+            locale: {
+                locale: 'de',
+                fallbackLocale: 'en',
+            }
+        }
     } as ModuleManager)
     .use(createPinia())
     .use(router)

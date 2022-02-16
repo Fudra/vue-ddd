@@ -1,11 +1,11 @@
 import { inject, h, ComponentOptionsMixin} from "vue";
 import { Emitter } from "mitt";
-import { EmitterKey } from "@/plugins/modules";
+import { EmitterInjectionKey } from "@/plugins/modules";
 import { useMessagingStore } from "./store";
 
 export default {
     setup() {        
-        const emitter = inject<Emitter<any>>(EmitterKey);
+        const emitter = inject<Emitter<any>>(EmitterInjectionKey);
         const messagingStore = useMessagingStore();
 
         emitter?.on("*", (type, e) => messagingStore.log(type, e));

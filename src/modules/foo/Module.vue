@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Foo Module</h1>
-    
+    <h1>{{ t("foo.module") }}</h1>
+
     <router-link :to="{ name: 'foo-one' }"> One </router-link>
     <router-link :to="{ name: 'foo-two' }"> Two </router-link>
 
@@ -10,5 +10,6 @@
 </template>
 
 <script setup lang="ts">
-
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 </script>

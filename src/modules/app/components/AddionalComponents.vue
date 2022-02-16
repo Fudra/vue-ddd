@@ -8,6 +8,6 @@
 
 <script setup lang="ts">
 import { inject } from "vue";
-import { ServiceKey } from '@/plugins/modules'
-const components = inject(ServiceKey);
+import { ServiceInjectionKey } from '@/plugins/modules'
+const components = inject(ServiceInjectionKey);
 </script>

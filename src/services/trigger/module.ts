@@ -1,11 +1,11 @@
 import { inject, h, ComponentOptionsMixin } from "vue";
 import { Emitter } from "mitt";
-import { EmitterKey } from "@/plugins/modules";
+import { EmitterInjectionKey } from "@/plugins/modules";
 
 
 export default {
     setup() {
-        const emitter = inject<Emitter<any>>(EmitterKey);
+        const emitter = inject<Emitter<any>>(EmitterInjectionKey);
         
         setInterval(() => {
             emitter?.emit("time:interval"),
